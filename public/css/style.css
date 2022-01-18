@@ -1,0 +1,67 @@
+input[type=text] {
+	width: 100%;
+	font-size: 20px;
+	border-top-style: hidden;
+	border-right-style: hidden;
+	border-left-style: hidden;
+	border-bottom-style: hidden;
+	text-align: right; 
+}
+
+body {
+	background-image: url("../img/math.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+form {
+	margin: 0 auto;
+	width: 50vw;
+	height: auto;
+}
+
+table {
+	width: 100%;
+	margin-top: 20px;
+}
+
+table input {
+	width: 100%;
+	border: 1px solid;
+	border-radius: 4px;
+	border-width: 1px;
+	align-items: center;
+	margin: 4px;
+	background-color: #dadce0;
+	box-sizing: border-box;
+}
+
+.num {
+	background-color: #f1f3f4;
+}
+
+.equal {
+	background-color: #4285f4;
+}
+
+.display {
+	padding: 2px;
+	border-radius: 4px;
+}
+
+.up {
+	font-size: small;
+	color: darkolivegreen;
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+}
+
+.bottom {
+	font-size: larger;
+	border-end-end-radius: 4px;
+	border-end-start-radius: 4px;
+}
+
+.no-outline:focus {
+	outline: none;
+}
