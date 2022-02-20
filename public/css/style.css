@@ -6,10 +6,10 @@ input[type=text] {
 	border-left-style: hidden;
 	border-bottom-style: hidden;
 	text-align: right; 
-}
+	pointer-events:none;}
 
 body {
-	background-image: url("../img/math.jpg");
+	background-image: url("../img/pink-cloud.jpg");
 	background-size: cover;
 	background-attachment: fixed;
 }
