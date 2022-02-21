@@ -40,8 +40,8 @@
 						</tr>
 						<tr>
 							<td><input type='button' value='lnv' onclick='lnv(this)' /></td>
-							<td><input type='button' id="sin" value='sin' onclick='sin(this)' /></td>
-							<td><input type='button' id="log" value='log' onclick='log(this)' /></td>
+							<td><input type='button' id="sin" value='sin' /></td>
+							<td><input type='button' id="log" value='log' /></td>
 							<td><input type='button' class="num" value='7' onclick='input(this)' /></td>
 							<td><input type='button' class="num" value='8' onclick='input(this)' /></td>
 							<td><input type='button' class="num" value='9' onclick='input(this)' /></td>
@@ -49,8 +49,8 @@
 						</tr>
 						<tr>
 							<td><input type='button' value='pi' onclick='input(this)' /></td>
-							<td><input type='button' id="cos" value='cos' onclick='input(this)' /></td>
-							<td><input type='button' id="log10" value='log10' onclick='log10(this)' /></td>
+							<td><input type='button' id="cos" value='cos'/></td>
+							<td><input type='button' id="log10" value='log10' /></td>
 							<td><input type='button' class="num" value='4' onclick='input(this)' /></td>
 							<td><input type='button' class="num" value='5' onclick='input(this)' /></td>
 							<td><input type='button' class="num" value='6' onclick='input(this)' /></td>
@@ -58,7 +58,7 @@
 						</tr>
 						<tr>
 							<td><input type='button' value='e' onclick='input(this)' /></td>
-							<td><input type='button' id="tan" value='tan' onclick='tan(this)' /></td>
+							<td><input type='button' id="tan" value='tan' /></td>
 							<td><input type='button' value='sqrt' onclick='sqrt(this)' /></td>
 							<td><input type='button' class="num" value='1' onclick='input(this)' /></td>
 							<td><input type='button' class="num" value='2' onclick='input(this)' /></td>
@@ -66,7 +66,7 @@
 							<td><input type='button' value=' - ' onclick='input(this)' /></td>
 						</tr>
 						<tr>
-							<td><input type='button' value='Ans' onclick='input(this)' /></td>
+							<td><input type='button' value='Ans' onclick='answer(this)' /></td>
 							<td><input type='button' value='EXP' onclick='input(this)' /></td>
 							<td><input type='button' value='x^y' onclick='pow(this)' /></td>
 							<td><input type='button' class="num" value='0' onclick='input(this)' /></td>
@@ -81,12 +81,19 @@
 	</div>
 	
 	<script>
-		var status = true
-		var expression = ""
-		var ans = 0
+		let status = true
+		let expression = ""
+		let ans = 0
+
+		document.getElementById('sin').addEventListener('click', sin)
+		document.getElementById('cos').addEventListener('click', cos)
+		document.getElementById('tan').addEventListener('click', tan)
+		document.getElementById('log').addEventListener('click', log)
+		document.getElementById('log10').addEventListener('click', log10)
 
 		function update(){
 			document.getElementById('result').value = expression
+			document.getElementById('expression').value = 'Ans = ' + ans
 		}
 
 		function check() {
@@ -98,16 +105,11 @@
 		}
 
 		function input(button) {
-			console.log('key')
 			expression += button.value
 			update()
-			if (!document.getElementById('expression').value) {
-				document.getElementById('expression').value = 'Ans = ' + ans
-			}
 		}
 
 		function clean(button) {
-			console.log('clean')
 			expression = expression.slice(0, -1)
 			update()
 		}
@@ -187,7 +189,6 @@
 		}
 
 		function lnv() {
-			console.log(status)
 			if (status) {
 				document.getElementById('sin').value = 'asin'
 				document.getElementById('cos').value = 'acos'
@@ -202,6 +203,11 @@
 				document.getElementById('log10').value = 'log10'
 			}
 			status = !status
+		}
+
+		function answer() {
+			expression += ans
+			update()
 		}
 
 	</script>
